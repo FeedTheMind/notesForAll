@@ -1,0 +1,18 @@
+Ajax Notes : General
+
+Query string = http://website.com/employees.php?firstName=John&lastName=Smith . . . is what comes after the question mark. It appears at the end of a URL and allows for additional information in the response.
+
+Query strings can hold multiple value pairs. In the previous example, the ampersand (&) combined two key-value pairs.
+
+Some characters have special meanings in URLs. Encode (or translate) into a set of symbols that are safe. 
+
+The following link is a good reference: http://www.url-encode-decode.com/
+
+Note: JavaScript and jQuery have methods that can do these types of conversions for you.
+
+GET method is a great way to send information to a server; however, all of the data is sent in the URL, meaning sensitive information will appear in one's browser history. Moreover, only so much data can be transfered in the URL.
+
+POST method puts information in the body of the request, not the URL.
+
+Ajax is limited by a browser's "same-origin policy." Here is a resourceful link: https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy
+

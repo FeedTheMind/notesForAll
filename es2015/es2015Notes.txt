@@ -1,0 +1,74 @@
+ES2015 : Variables
+
+let and const 
+
+let keyword provides block scope
+
+block scope can be a loop, if statement, or function
+
+const keyword prevents creating a variable with the same name in the same scope
+
+When to use . . . 
+
+Use let when you need to reassign a variable or scope a variable at the block level.
+
+Use const when you don't want a variables value to change throughout the project. 
+
+
+ES2015 : String
+
+Template strings . . . 
+
+Use backticks (`) and ${}.
+  The backtick character is to the left of the number one.
+
+  Go into Node's REPL (Read, Evaluate, Print, Loop) by typing node in the command line, if Node is installed on your machine. Then . . . 
+  
+  . . . let x = 10;
+      console.log(`The letter x is ${x}.`);
+        The letter x is 10.
+
+New Methods to Keep in Mind
+
+  starsWith()
+
+  endsWith()
+
+  includes()
+
+
+ES2015 : Promises 
+
+Promises were created to ease the burden of nested callback functions.
+
+While promise is waiting for call to finish, it's in a state of "pending." In other words, this pending promise lives on. It can produce a "resolved" state or an error. 
+
+.then() method helps with a promise's fulfillment or error. A common way to see promises . . . 
+getJSON('/profile.json').then(renderProfile, displayErr);
+
+
+Or people will ignore the "rejection" handler, the second argument in the .then() method. 
+
+Ex: 
+
+getJSON('/profile.json')
+  .then(renderProfile)
+  .then(getFriendsd)
+  .catch(displayErr);
+
+The above chaining allows for greater flexibility.
+
+Three states of a promise . . . 1) pending, 2) fulfilled (resolved), 3) rejected
+
+
+ES2015 : Default Parameters
+
+In ES2015, use the assignment operator (=) after parameter to create default value.
+
+Ex:
+
+function greet(name = 'Name', timeOfDay = 'day') {
+  console.log(`Good ${timeOfDay}, ${name}.`);
+}
+
+If no arguments or undefined is passed to the function, it will print "Good day, Name." 

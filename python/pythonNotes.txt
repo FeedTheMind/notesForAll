@@ -1,0 +1,168 @@
+Python Notes : Booleans
+
+Like most programming languages, Python has two Booleans, True and False. However, there is also the concept of truthy and falsy.
+
+Truthy . . . a bit of data, such as a variable, string, or list, having something in it; same for all numbers that aren't zero
+
+Falsy . . . empty bits of data and the number zero
+
+The bool() method will evaluate to True or False.
+
+
+Python Notes : General 
+
+To indent Python code, convention is four spaces.
+
+The hash (#) allows for a single-line comment.
+
+Below, the print() method will "print" to the console.
+
+print('Hello, World!')
+
+In Python, try not to put semicolons at end of statements. Ex: day_of_the_week = "Monday" <--- A semicolon does not end this statement.
+
+Don't use spaces or hyphens to create a file. Underscores (this_is_a_file) and camel case (whereEveryWordButTheFirstHasCapitalFirstLetter) are permissible.
+
+Files must end in .py
+
+NameError = trying to use something that doesn't exist
+
+EOL = End of Line
+
+Python variables use alphanumeric characters (A - Z, 0 - 9); don't start with numerical value, though.
+
+Strings = single ('), double ("), or triple (""" or '''); also, backslash (\) is an option to escape a character(s)
+
+End conditionals, loops, and functions with a colon (:). For example, 
+if 3 > 2:
+    print('Three is greater than two!')
+
+
+Python Notes : Methods
+
+.format() = method to update string . . . 
+    Ex:  print("Hey, what are you doing here, {}?".format('John'))
+  
+    Add single item to list = use .append()
+    Add multiple items to a list = .extend([])
+  
+    ValueError = unavailable
+
+One can make more floats, ints, and strings by using  multiplication operator (*)
+    Ex: 'Hi ' * 5 = 'Hi Hi Hi Hi Hi '
+
+.split() method can be used on string objects 
+    Ex: 'How are you doing?'.split() = ['How', 'are', 'you', 'doing?'], an array of substrings
+
+.join() = you must use a string to go from a list to a string
+    flavors = ['chocolate', 'vanilla']
+    ', '.join(flavors) = chocolate, vanilla
+
+Strings and lists are iterable; they can be "looped."
+
+.index() will return first instance of item you are looking for 
+
+Usually, you should avoid using "is" operator; however, use it to test if a variable is None.
+
+Python does not do type coercion, so triple equals (===) is not needed.
+
+
+Python Notes: Conditional
+
+if 3 > 2:
+    print('True');
+
+# elif and else are other keywords
+
+# not keyword can be used with if; e.g., if not 30 > 40:
+
+
+Python Notes : Comparison
+
+5 == 5 . . . true . . . because 5 does equal 5
+5 != 7 . . . true . . . because 5 does not equal 7
+
+5 > 7 . . . false . . . because 5 is not greater than 7
+5 < 7 . . . true . . . because 5 is less than 7
+
+5 is 5 . . . true . . . because 5 equals 5
+However, the is operator, above, compares whether values are in the same place in memory. So, it's fine for small bits of data; however, it can be problematic for larger bits of data. On the other hand, the is operator is  handy to test whether a variable has value or is None.
+
+
+Python Notes : Containment
+
+in 
+  
+in keyword has two uses: in returns whether or not a value is inside of a container. We can use this to see if, for example, a smaller string is in a bigger string or if a certain item is in a list. Also, in can be used with loops
+  
+see if one value is in another value
+  
+    "cheese" in "cheeseshop" == true
+
+
+Python Notes : Loops
+
+for loop = let us perform an action a certain number of times
+
+    my_list = ['Hello', 'how', 'are', 'you']                                                             
+    
+    >>> for word in my_list:                                                                                 
+        print(word)                                                                                      
+                                                                                                          
+    Hello                                                                                                    
+    how                                                                                                      
+    are                                                                                                      
+    you      
+
+while loop = run until a condition is false or falsy; let us do something as many times as there are things in another thing 
+
+    start = 10
+
+    while start:
+        print(start)
+        start -= 1
+
+# Keyword . . . break . . . will "break" from a loop and continue will "continue" on.
+
+
+Python Notes: Input
+
+.input() method allows a programmer to store a user's input. 
+
+    day_of_week = input("What is day of week is it? ")
+
+    If "Monday" is what the user input, then that will be stored in the day_of_week variable. 
+
+
+Python Notes : Function
+
+To define a function, use the def keyword . . . 
+
+    def add10(num):
+        print(num + 10)
+
+In the preceding example, the add10(num) function only prints the provided num + 10. This is helpful. However, by using the return keyword, one can "return" (store) the value for later use.
+
+So . . . 
+    def add10(num):
+        return (num + 10)
+        
+        # The above function has greater flexibility than add10(num) with "print."
+
+
+How to Handle Exceptions
+
+try is a keyword that allows one to test for an exception.
+
+To "catch" an exception, use the keyword except, specifying the exception to "catch." Now, does one have to specify an except value--no. However, it's bad practice to leave it out.
+
+
+
+
+
+
+
+
+Python Notes : Helpful Websites
+
+Built-in Functions . . . https://docs.python.org/2/library/functions.html
