@@ -72,3 +72,120 @@ function greet(name = 'Name', timeOfDay = 'day') {
 }
 
 If no arguments or undefined is passed to the function, it will print "Good day, Name." 
+
+
+ES2015 : Rest Parameters 
+
+Rest parameters make it easier to pass parameters to a function. 
+
+The three periods (...) before the second parameter = how to define rest parameter 
+
+Note: Rest parameter must be the last parameter defined, not first.
+
+function myFunction(name, ...params) {
+  console.log(name, params);
+}
+
+myFunction("Name", 1, 2, 3); . . . logs . . . Name [1, 2, 3]
+
+
+ES2015 : Spread Operator 
+
+The spread operator is a useful way to update an array.
+
+const original = ['Chocolate', 'Vanilla'];
+const newFlavors = ['Strawberry', 'Mint'];
+const inventory = ['Rocky Road', ...original, 'Peanut Butter', ...newFlavors];
+
+console.log(inventory); ===> logs ['Rocky Road', 'Chocolate', 'Vanilla', 'Peanut Butter', Strawberry', 'Mint', ]
+
+Also, it can allow for an array of arguments to a function.
+
+function myFunc(name, iceCream) {
+  console.log(`${name} really likes ${iceCream} ice cream.`);
+}
+
+let args = ['Name', 'mint'];
+
+myFunc(...args);
+
+logs . . . Name really likes mint ice cream.
+
+
+ES2015 : Object Property Shorthand can be used with Booleans, numbers, strings, and classes.
+
+function submit(name, comments, rating =  5) {
+  let data = {name, comments, rating};
+
+  for (let key in data) {
+    console.log(key + ':', data[key]);
+  }
+}
+
+In the above bit of code, the data object does not have any keys. ES2015 will assign the variable name(s) as the key(s) if no key(s) was (were) provided. Also, notice the third parameter, rating. It has an assignment operator (=) followed by 5. If a "rating" is not provided, it will have a default of 5. Sweet!
+
+The benefits: reduces keystrokes and bugs
+
+
+ES2015 : For...Of
+
+Note: for...of can be used with string, array, map, and set.
+
+Iterating over a dataset is common; ES2015 gives a helpful statement to iterate with . . . for...of.
+
+The beauty of this loop is that it allows one to "break" from a loop when a condition has been met, improving speed and performance of one's program.
+
+Here's a great link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
+
+
+ES2015 : Class/Sub-Class
+
+The class keyword is a constructor function in disguise. 
+
+For example, let Student = function (data) {
+               this.name = data.name;
+               this.age = data.age;  
+             }
+
+is equivalent to class Student {
+                  constructor(data) {
+                    this.name = data.name;
+                    this.age = data.age;
+                  }
+                 }
+However, the above class will also log the Student class to the console. In other words, it will log . . . 
+
+  Student {name: 'Name', age: 99}
+
+Function declarations are hoisted and class declarations are not. You first need to declare your class and then access it; otherwise, a ReferenceError is thrown.
+
+More information: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
+
+With subclasses, use extends keyword; it reference the parent class. After this, use the super function, in the child constructor, super().
+
+In other words, when extending a class you must be sure to call the super() function in the child class constructor before any reference to the instance.
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/extends
+
+
+ES2015 : Static Method
+
+Static methods are not accessible through an instance. You can only  call the function by referencing its class.
+
+
+
+ES2015 : Misc.
+
+Set . . . must have unique values . . .
+
+Also . . . set has has() method, a great way to see if an element exists
+
+ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
+
+Destructuring 
+
+getters versus setters
+
+get has no parameters and must return a value
+
+set has parameters 
