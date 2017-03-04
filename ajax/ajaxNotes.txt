@@ -16,3 +16,89 @@ POST method puts information in the body of the request, not the URL.
 
 Ajax is limited by a browser's "same-origin policy." Here is a resourceful link: https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy
 
+Four Steps of AJAX
+
+1) Open XMLHttpRequest() object
+2) Check onreadystatechange
+3) Open request, with GET or POST
+4) Send
+
+1) var xhr = new XMLHttpRequest();
+
+2) xhr.onreadystatechange = function () {
+
+};
+
+3) xhr.open('GET', 'sidebar.html');
+
+4) xhr.send();
+
+A more flushed out example . . . 
+
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() {
+  if (xhr.readyState === 4) {
+    if (xhr.status === 200) {
+      var div = document.getElementById('sidebar');
+      div.innerHTML = xhr.responseText;
+    }
+  }
+};
+xhr.open('GET', 'sidebar.html');
+xhr.send();
+
+XMLHttpRequest object has a readyState property that holds 0 - 4. The most important is 4, indicating everything is ready to be sent.
+Sometimes, checking for a readyState of 4 is not enough . . . server is down, etc.
+
+A good defense is to also use the status property: 200 = good
+
+
+AJAX : JSON
+
+JSON = JavaScript Object Notation
+
+JSON consists of arrays and objects.
+
+Two ways to format JSON . . . as an array or an object, or both.
+
+The preferred format is to use objects, as they consist of key-value pairs. This allows for easier identification of data. Keep in mind, JSON requires double quotes (" ") to create valid JSON.
+
+
+AJAX : Parse
+
+JSON must be parsed before it can be used by the browser.
+JSON.parse(xhr.responseText);
+
+
+AJAX : Questions
+
+Q. What does an HTTP status code of 200 indicate?
+A. Okay. (Done.)
+
+Q. If a variable named xhr contains an XMLHttpRequest object, what 
+"sends" the AJAX request to the server?
+A. xhr.send();
+
+Q. How do you create an XHR object?
+A. var xhr = new XMLHttpRequest(); Note: The xhr variable can be anything.
+
+Q. What does a status code of 404 mean?
+A. File Not Found.
+
+Q. What does JSON stand for?
+A. JavaScript Object Notation.
+
+Q. Do JSON properties require double quotes ("")?
+A. Yes, the property, and value, requires double quotes.
+
+Q. How can JSON data be formatted?
+A. As an array of values, as a JS object containing name-value pairs, and as an array of JS objects.
+
+Q. How to turn JSON string into JS?
+A. Use JSON.parse(xhr.responseText);.
+
+Q. How can you tell if value is JSON and not string?
+A. Use the typeof operator.
+
+Q. When a server sends JSON-formatted data, what type of data is it sending?
+A. String.
