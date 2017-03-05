@@ -1,0 +1,55 @@
+Node : General
+
+To see which version of Node is installed, type the following in the command line:
+  node -v
+
+Note: The same procedure applies to NPM.
+
+Three important methods on the console object are log(), error(), and dir(). All three can be used for development and debugging purposes.
+
+To experiment with JavaScript in the terminal (command line), type node. It will bring up the REPL (Read, Evaluate, Print, Loop). It's a quick, lightweight way to test ideas.
+
+What's impressive about Node is that one is able to create a JavaScript application outside of the browser. 
+
+In the browser, a JavaScript program can be split into two parts: native objects (String, Array, Date, Math, etc.) and host objects (Window, Document, History, XMLHttpRequest, etc.).
+
+Node Host Objects . . . http, https, fs (file system), url, os, etc.
+
+Why use Node?
+
+Here are two big reasons to use Node: 1) asynchronous and 2) non-blocking. Node requires fewer system resources because of its non-blocking nature.
+
+As a Node developer, what should you do to find help?
+
+1) Search engines 
+2) Node documentation site (nodejs.org)
+Note: Generally, API (application program interface) and documentation are interchangeable.
+
+
+Node : Events
+
+In JavaScript, there are two types of events: user and system.
+User = 'click' (mouse), etc.
+System = setTimeout() and onreadystatechange, etc.
+
+On the "data" event in Node, the response body will be a Buffer, a common data type emitted by Node networks and file events. These buffers allow for streams of data. Streams are important because a program does not have to finish acquiring the data before it's sent. It is sent in chunks. To convert from Buffer to String, use the toString() method. Use a variable to concatenate the data as it comes in. 
+
+When the data has finished coming in, the "end" event fires, signaling to the user that no more data is heading your way.
+
+
+Node : Questions
+
+Q. If you see an .on() method being called, what does this indicate?
+A. "on" indicates that an object is responding to an event, such as error, data, etc. When the event has been triggered, the next course is usually a callback that responds accordingly.
+
+Q. How do you exit the Node REPL?
+A. Press Ctrl + c twice.
+
+Q. In Node, the stability index is critical. What does an index of 0 indicate?
+A. Deprecated.
+
+Q. What is Node's default JavaScript engine?
+A. Chrome's V8
+
+Q. What are the four P's?
+A. Prepare, Plan, Perform, Perfect
