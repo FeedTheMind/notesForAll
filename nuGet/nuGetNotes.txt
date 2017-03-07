@@ -1,0 +1,45 @@
+NuGet : General
+
+.NET libraries are called assemblies. Now, library and assembly can be used interchangeably--in C#.
+
+The package management system for .NET is NuGet.
+Other programming languages have different package managers:
+  Java = Gradle
+  Ruby = (Ruby)Gems
+  Python = pip
+  JavaScript = NPM
+  PHP = Composer
+
+In .NET, to see which assemblies a program depends on, go to Solution Explorer and look under the References section. Each reference represents an assembly that one's application might need to run.
+To see further details, click on one. Details should open in the Properties window. If the Properties window does not open up, right click on the reference and select Properties.
+
+Note: Another useful window is the Browser window. Click View and then select Object Browser.
+
+Two implicit dependencies of .NET are mscorlib and System.Core
+
+To add a Reference in .NET, right click on References (in Solution Explorer) and select Add Reference. The Framework section in the Reference Manager window has references that come bundled with the selected version of .NET. The Extensions area are assemblies that came with Visual Studio or were installed later. Note: These did not come with .NET.
+
+COM are libraries used to communicate with other programs on Windows' computers.
+
+To access NuGet, head to the Solution Explorer. If Solution Explorer is not pinned to the side, click View (upper left of Visual Studio) and then click Solution Explorer. 
+
+Once Solution Explorer is available, right click References and then click Manage NuGet Packages. There, you will be able to Browse for various NuGet packages, check Installed packages, and look at Updates.
+
+When you have selected one or more packages, a package.config file will be created in Solution Explorer. Now, keep in mind that a single NuGet package may have more than one assembly (library).
+
+To see where the packages are being installed, open the Properties window and scroll to Path. If you want to head to this area, right click the Solution name (above your project folder) and select Open Folder in File Explorer.
+
+Packages will be inside of the Solution folder, not the Project folder. The Packages are dependencies of your project but are stored outside of it. This is common, as multiple projects inside of a solution depend on the same packages. 
+
+Now, let's say you added another project to your folder. You could right click References in Solution Explorer and click either Add Reference or Manage NuGet Packages, but a better way is to right click on the Solution (insert name of your project) in Solution Explorer and click Manage NuGet Packages for Solution. The interface will look similar to Manage NuGet Packages, but it is different. Now, if you decide to uninstall something, keep in mind that you may have to manually remove code from App.config. Moreover, the Consolidate section of Manage NuGet Packages for Solution will help you decide which version of a package you want for projects.
+
+NuGet goes off semantic versioning . . . Major.Minor.Patch
+
+Major = version when you make incompatible API changes
+Minor = version when you add backwards-compatible manner
+Patch = version when you make backwards-compatible bug fixes
+
+Also, prereleases . . .
+With prereleases, append -apha, -beta, and so on.
+1.0.1-alpha <-- Add alpha
+1.0.1.-beta <-- Add beta
