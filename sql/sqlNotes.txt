@@ -1,0 +1,175 @@
+SQL : General
+
+In a nutshell, the world is driven by data.
+
+Here are SQL database websites: 
+  MySQL: https://www.mysql.com/
+  PostgreSQL: https://www.postgresql.org/
+  SQLite: http://www.sqlite.org/
+  Oracle: https://www.oracle.com/database/index.html
+  Microsoft: https://www.microsoft.com/en-us/sql-server/sql-server-2016
+Each understands SQL. If you learn SQL, it can be used across all the above database. Keep in mind that there are some differences in a few areas, though.
+
+Here are NoSQL database websites: 
+  MongoDB: https://www.mongodb.org/
+  CouchBase: http://www.couchbase.com/
+  Redis: http://redis.io/
+
+SQL = Structured Query Language
+
+Reading data from a database is known as querying. 
+
+Two important components of a database: 1) data and 2) schema.
+
+The schema determines how the data should be stored and divided into different sections. It further determines how each section relates to another section. These sections are called tables.
+
+Columns of a table = vertical sections
+  
+Rows of a table = horizontal sections
+
+Table columns of the schema are to have certain data types: text, numeric, date, etc.
+
+Text = store names or descriptions
+Numeric = prices, ages, and quantities
+Date = time-related elements
+
+Syntax = Vocabulary and grammatical structure of a programming language
+
+The "vocabulary" words, though few, are called keywords. These are the commands issued to a computer. Lines of SQL are known as a statement (or a query).
+
+
+SQL : Statement
+
+Here is how a query might be written in English: 
+
+What is all the information we have about each book in a table?
+
+In SQL, it may look like the following:
+  SELECT * FROM books;
+
+Uppercase words (SELECT and FROM) are keywords
+
+SELECT = When you want to write a query
+
+FROM = Which table 
+
+* = Bring all information from the columns
+
+; = Let's database know where the statement ends (terminates)
+
+In large applications, querying all (*) information FROM a table is unrealistic, but in smaller applications, it is fine, with no performance issues.
+
+What if you want to select two pieces (columns) of data from a table? Simply separate the names with a comma in the SQL query.
+
+Ex: SELECT email, firstName FROM patrons;
+
+
+SQL : Filtering Information
+
+SELECT email FROM patrons;
+
+The above code will SELECT all email(s) FROM patrons table. If * had been used, then all data from the patrons table would have been returned.
+
+
+SQL : Changing Title Columns
+
+Use the keyword AS to change a column's name. This is known as aliasing.
+
+SELECT title AS Title, first_published AS "First Published" FROM books;
+
+The result will be a column with Title and one with First Published. Did you notice the double quotes around First Published? This works with some SQL databases, but not others. Some require single quotes; others require brackets. Just an FYI.
+
+This is possible, but not helpful: The AS keyword can be removed, but it hinders readability. Just an FYI.
+
+Moreover, the AS keyword does not change the name of the column in the actual database. Again, this is aliasing.
+
+Note: SELECT, FROM, AS, etc . . . are all uppercase. Do these keywords need to be that way? No. Lowercase is permissible. But uppercase helps with readability and distinguishing different parts of a query.
+
+
+SQL : WHERE (Conditions) and Keywords
+
+WHERE is a keyword where you specify a condition.
+
+SELECT <columns> FROM <table> WHERE <condition>;
+
+Closer look at condition = <column> <operator> <value>
+
+SELECT title, author FROM books WHERE first_published = 1997;
+
+= . . . this is the equality operator and it is case sensitive. So, "Doug" = "Doug" is true; "Doug" = "Funny" is false
+
+Above, if the first_published year is 1997, then title and author are returned. Also, you don't have to include first_published in the SELECT area. This reduces clutter and enhances readability.
+
+To get books not published in 1997, use the inequality operator (!).
+
+SELECT title, author FROM books WHERE first_published != 1997;
+
+Here are some more operators:
+  < : less than operator 
+  <= : less than or equal to 
+  > : greater than
+  >= : greater than or equal to
+
+What happens when you want to use more than one condition? It depends on the question you want to ask. But you can use either AND or OR.
+
+SELECT title FROM books WHERE author = "Some Author" AND first_published < 2000;
+
+This will yield titles that satisfy both conditions. However, if the OR keyword had been used, then different results would have been produced. When OR is used, only one of the two conditions has to be true. Again, with AND, both conditions must be true.
+
+How can you compare multiple values? You can use multiple ORs; however, this may become verbose and messy.
+
+Use IN keyword, instead.
+
+After WHERE, add IN (<value 1>, <value 2>, etc)
+
+Ex: SELECT first_name, email FROM patrons WHERE library_id IN ("MC", "MA", "MD");
+
+Note: parentheses () and comma-separated values must be present
+
+If you want to find first_name and email in patrons WHERE library_id is not IN ("MC", "MA", "MD"), use the NOT keyword right before IN.
+
+Ex: SELECT first_name, email FROM patrons WHERE library_id NOT IN ("MC", "MA", "MD");
+
+Let's say you want to express a value between a range. What's a good way to do that? Use the BETWEEN keyword.
+
+Ex: SELECT <columns> FROM <table> WHERE <column> BETWEEN <minimum> AND <maximum>;
+
+How should you be more flexible with your searches?
+
+To add more flexibility, use the LIKE keyword instead of the equality operator (=). Now, when using LIKE, the wildcard operator (%) must be used as a substitute character.
+
+Ex: SELECT title FROM books WHERE title LIKE "Harry Potter%";
+
+This will yield all Harry Potter books, regardless of specifying the volume. Now, this will only yield "all" Harry Potter books if, and this is important, "Harry Potter" is fully used. The wildcard (%) at the end of "Harry Potter" simply substitutes the missing values. For example, if one were to use "Harry Potte" as the condition, it would fail. But if the same person replaces that with "Harry Potter", all results, from Harry Potter and the Philosopher's Stone to Harry Potter and the Deathly Hallows, will be returned.
+
+In SQL, how do you represent a missing value? Use the NULL keyword. NULL cannot be used with equality operator (=); it must be used with the IS keyword or IS NOT keywords.
+
+
+SQL : Two Tables
+
+To select from two tables, insert a comma between the first and second table. In the WHERE clause, you can set up the relationship between the two tables.
+
+Ex: SELECT * FROM <table 1>, <table 2> 
+  WHERE <table 1>.<table 1 column> = <table 2>.<table 2 column>;
+
+
+SQL : Questions
+
+Q. Databases organize their information into structures called what?
+A. Tables.
+
+Q. What is each entry in a table known as?
+A. Row.
+
+Q. Why is an id important in a table?
+A. It is a unique identifier that guarantees that every row is not a duplicate of another.
+
+Q. How do you make a comment in SQL?
+A. Use two hyphens . . . -- This is a comment.
+-- Comments don't get executed.
+
+Q. Again, what does * do?
+A. It brings back all columns of a table.
+
+Q. Do you need quotes for date types and text types?
+A. Yes. Date: "2015-10-10" Text: "I am text"

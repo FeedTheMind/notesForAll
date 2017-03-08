@@ -61,13 +61,93 @@ JSON consists of arrays and objects.
 
 Two ways to format JSON . . . as an array or an object, or both.
 
-The preferred format is to use objects, as they consist of key-value pairs. This allows for easier identification of data. Keep in mind, JSON requires double quotes (" ") to create valid JSON.
+The preferred format is to use objects, as they consist of key-value pairs. This allows for easier identification of data. Keep in mind, JSON requires double quotes (" ") to create valid JSON. (Place double quotes around the key and the value, depending on the value's data type.)
 
 
 AJAX : Parse
 
 JSON must be parsed before it can be used by the browser.
 JSON.parse(xhr.responseText);
+This is because JSON comes as a string. If you try to sift through the string data returned, you're going to have a bad time.
+
+
+AJAX : jQuery
+
+jQuery is the most popular JavaScript library because it makes programming tasks more simple and has great cross-browser support.
+
+To use jQuery, place a script tag in the <head></head> or before the closing </body>. The src attribute of the script tag should point to where the jQuery can be found. Many use the CDN (Content Delivery Network) of either jQuery or Google. Note: If you place the script tag in the head element, jQuery may not work properly because it will load before HTML does. If you plan to leave it there, wrap your code in $(document).ready(function () {
+  // Your code . . .
+}); The ready() method will fire once the document has fully loaded.
+
+AJAX is used by web developers for gathering JSON data, posting data to a database, and injecting HTML into a webpage. jQuery has shorthand functions to simplify these common tasks. To find a consolidated list of information, head to api.jquery.com. Under the Ajax section, click Shorthand Methods. 
+
+When using one of the shorthand methods, like get(), is it common to see $.get()? Yes! In jQuery, some methods don't require a selector to be used. The dollar sign ($) is a shorthand for the jQuery library itself. Either are correct . . .
+jQuery.get();
+$.get();
+. . . the latter is more popular, as it requires less typing.
+
+The first argument to a get() is the url. The second argument is optional. It's data that is sent to the server. Data is added to the URL as a query string. Finally, a callback function is last.
+It is similar to how a regular JavaScript AJAX callback works.
+The callback function only runs when the AJAX request is complete and successful.
+
+var url = 'someURL';
+var data = {
+  firstName : "Some Name",
+  lastName : "Some Name"
+};
+
+var callback = function (response) {
+  // Do something with response
+};
+
+$.get(url, data, callback);
+
+In the above get() method, many developers will combine everything into one. In other words . . .
+
+$.get('someURL', {someObject}, function (response) {
+  // Do stuff with response
+});
+
+
+AJAX : $.getJSON()
+
+This function works nearly the same as $.get(). It has URL, data, and callback. However, the response passed to the callback function is parsed into a usable JavaScript array or object. Keep in mind, if the server responds with anything other than JSON, the function will fail.
+
+A useful way to cycle through an array or object is jQuery's $.each() method. $.each(arrayOrObject, callback);
+The callback function accepts two arguments: index and value.
+
+
+AJAX : $.post()
+
+It takes three arguments: url, data, and callback.
+
+Data can be a JavaScript object. However, it's common to use data from a form. Note: In the callback, use event.preventDefault();
+var url = $(this).attr('action');
+var formData = $(this).serialize();
+
+serialize() will extract the data accordingly.
+
+
+AJAX : $.ajax()
+
+The $.ajax() method looks simple, with two arguments: url and settings.
+
+But it's the ultimate AJAX method in jQuery. To learn more, follow this link: http://api.jquery.com/jquery.ajax/
+
+Why use the $.ajax() method? Well, you can set a "timeout" that waits a number of milliseconds before hearing back from the server. So, you can quit the AJAX request. Moreover, user authentication can be set up, too. But for most common scenarios, the shorthand methods work fine.
+
+
+AJAX : Errors
+
+AJAX requests fail silently. This may be fine in some instances; however, sometimes you need to let the user know that an error has occurred.
+
+jQuery supports a process known as chaining, where some methods can be added to the end of another method. In the case of errors, the fail method can be tacked on to shorthand AJAX methods except .load() and remote AJAX requests that use JSONP.
+
+Ex: $.get('URL', function (data) {
+
+}).fail(function (jqXHR) {
+
+});
 
 
 AJAX : Questions
@@ -75,8 +155,7 @@ AJAX : Questions
 Q. What does an HTTP status code of 200 indicate?
 A. Okay. (Done.)
 
-Q. If a variable named xhr contains an XMLHttpRequest object, what 
-"sends" the AJAX request to the server?
+Q. If a variable named xhr contains an XMLHttpRequest object, what "sends" the AJAX request to the server?
 A. xhr.send();
 
 Q. How do you create an XHR object?
@@ -102,3 +181,24 @@ A. Use the typeof operator.
 
 Q. When a server sends JSON-formatted data, what type of data is it sending?
 A. String.
+
+Q. In jQuery, what is the load() method used for?
+A. The .load() method is a fast way to insert HTML content into an element on a page using AJAX. Note: This method requires an element to be selected, unlike the $.get() method.
+
+Q. What do brackets around arguments mean in documentation?
+A.Usually, this indicates that the argument is optional.
+
+Q. What does jQuery's preventDefault() method do?
+A. It's used with an event object to prevent the browser from responding normally. For example, it prevents a form from being submitted when a link is clicked.
+
+Q. With post() method, what does serialize() method do?
+A. It creates a text string with standard URL-encoded fields in an HTML form.
+
+Q. What is the $.ajax() success property used for?
+A. It sets a callback that runs when the browser successfully receives a response from the server.
+
+Q. What two parameters does jQuery's $.ajax() method accept?
+A. A URL and a JavaScript object with settings controlling how the AJAX request is made.
+
+Q. The callback function for jQuery's .fail() method receives a jQuery XHR object as a parameter. What property of the jQuery XHR object provides the response's HTTP status code?
+A. Status.
