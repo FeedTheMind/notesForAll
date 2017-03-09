@@ -153,6 +153,123 @@ Ex: SELECT * FROM <table 1>, <table 2>
   WHERE <table 1>.<table 1 column> = <table 2>.<table 2 column>;
 
 
+SQL: CRUD
+
+CRUD = Create, Read, Update, Delete
+
+Each CRUD operations has a specific SQL keyword associated with it.
+
+Create = INSERT
+  Ex: INSERT INTO <table> VALUES (<value 1>, <value 2>, . . . );
+  The values must be inserted in the order the schema describes the columns.
+
+  Ex: INSERT INTO books VALUES (16, "1984", "George Orwell", "Fiction", 1949);
+
+  If the id column has been designated as autoincrementing, you can use NULL instead of the next value. In the above example, 16 comes after 15. With autoincrementing, NULL would have produced 16 in the table.
+
+  One problem with the above example is that it's not clear what the VALUES mean. SQL provides a handy helper.
+
+  Ex: INSERT INTO books (id, book, author, genre, year_published) 
+    VALUES (16, "1984", "George Orwell", "Fiction", 1949);
+
+  The parentheses () after books are associated with the table names. Moreover, the names don't have to be in order. For example, if id were last, it's value would be inserted in the appropriate position if the id is moved from the first to last position. In other words, the values can be organized how you see fit and the schema will not be changed. Just make certain that the values match the column names.
+
+  If one of the values is not specified, you could use NULL keyword. However, by leaving the area empty, SQL will know that they are to be empty. Keep in mind that the autoincrementing will adjust the id accordingly.
+
+  While some columns allow NULL, database designers sometimes require a value. This makes sense, as some portions of the table would require a value, such as patron_id for a library table.
+
+  Inserting Multiple Rows
+
+  INSERT INTO books (title, author, genre, first_published) 
+    VALUES ("The Circle", "Dave Eggers", "Science Fiction", 2013);
+  INSERT INTO books (title, author, genre, first_published) 
+    VALUES ("Contact", "Carl Sagan", "Science Fiction", 1985);
+  INSERT INTO books (title, author, genre, first_published) 
+    VALUES ("Animal Farm", "George Orwell", NULL, 1945);
+
+  It's common to see multiple statements like this in files that set up the database, called database seed files. However, it's more common to see the first part of the query once, not three times. 
+
+  INSERT INTO books 
+           (title, author, genre, first_published) 
+    VALUES ("The Circle", "Dave Eggers", "Science Fiction", 2013),
+           ("Contact", "Carl Sagan", "Science Fiction", 1985),
+           ("Animal Farm", "George Orwell", NULL, 1945);
+
+Read = SELECT
+
+  This information is in the SQL : Statement section and ends when SQL : CRUD begins.
+
+Update =  UPDATE
+
+  UPDATE <table> SET <column> = <value>;
+
+  SET is a keyword that "sets" the value of a column.
+
+  The equal sign in this case is not like that of a WHERE clauses. Here, in UPDATE, it's an assignment operator.
+
+  Ex: UPDATE patrons SET last_name = "Anonymous";
+
+  The above statement will update the last_name column with "Anonymous."
+
+  UPDATE Multiple Values
+
+  UPDATE <table> SET <column 1> = <value 1>, <column 2> = <value 2>;
+
+  UPDATE patrons SET email = "anon@email.com", zip_code = 55555;
+
+  Targeting Specific Rows
+
+  UPDATE <table> SET <column> = value;
+
+  If you want to target a specific row,
+
+    Use WHERE keyword . . . 
+
+    UPDATE <table> SET <column> = value WHERE <condition>;
+
+Delete = DELETE
+
+  DElETE Statement . . . 
+
+  DELETE FROM <table>;
+
+  DELETE FROM patrons;
+
+  This will remove all patrons information. 
+
+  WARNING! If you DELETE your data, you will be unable to get it back. The safe thing to do is back up your data.
+
+  DELETE Specific Rows
+
+  DELETE FROM <table> WHERE <condition>;
+
+
+SQL : Commit
+
+Most databases have autocommit turned on by default. Sometimes, you don't want this to be the case. So, what can you do to prevent autocommitting from occurring? Use transactions.
+
+Transactions are an important concept to understand.
+
+To turn off autocommit, have this at the beginning of your script . . . 
+
+  BEGIN TRANSACTIONS; (Shuts off autocommit.)
+
+  INSERT INTO genres (name) VALUES ("Non-fiction"); (Your statements go here.)
+
+  COMMIT; (This will save your statements, but it cannot be undone unless UPDATE and DELETE statements are used accordingly.)
+
+
+SQL : ROLLBACK
+
+If you BEGIN your statements and soon realize that you've made a typo, use the ROLLBACK statement . . . 
+
+  BEGIN;
+
+  INSERT INTO genres (name) VALUES ("Non-fiction");
+
+  ROLLBACK; (This will "rollback" to an empty table, as the values were not "committed.")
+
+
 SQL : Questions
 
 Q. Databases organize their information into structures called what?
@@ -173,3 +290,37 @@ A. It brings back all columns of a table.
 
 Q. Do you need quotes for date types and text types?
 A. Yes. Date: "2015-10-10" Text: "I am text"
+
+Q. What keyword comes after INSERT?
+A. INTO.
+
+Q. What does CRUD stand for?
+A. Create, Read, Update, Delete
+
+Q. With UPDATE SET, what does the = sign stand for?
+A. It is the assignment operator. (Note: With WHERE keyword, it (=) becomes the equality operator.)
+
+Q. What are some keywords that can be used with WHERE?
+A. >, <, >=, <=, != . . . 
+   IN
+   BETWEEN
+   LIKE
+
+Q. Which keyword will remove rows from a table?
+A. DELETE.
+
+Q. Which keywords are used when creating rows in a table?
+A. INSERT INTO.
+
+Q. What does COMMIT; statement do?
+A. This statement commits all changes since the transaction began and turns autocommit back on.
+
+Q. What does BEGIN; (or BEGIN TRANSACTION;) do?
+A. It turns autocommit off.
+
+Q. What is ORM?
+A. Object-Relational Mapping. It allows programmers to use their preferred programming language to perform CRUD operations.
+  Ex: Hibernate for Java
+      CoreData for Objective-C or Swift
+      Django ORM for Python
+      ActiveRecord for Ruby
