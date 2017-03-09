@@ -150,6 +150,61 @@ Ex: $.get('URL', function (data) {
 });
 
 
+AJAX : API
+
+Sharing information is important on the web. A great way to take advantage of the wealth of information is by using an API, or Application Programming Interface.
+
+There is no one-size-fits-all formula for APIs.
+
+Almost all sites that have an API require an API key. This "key" gives a developer access to their information. The "key" acts like a password, limiting access to what you can do. If you abuse the number of requests, they could revoke your key or charge you a fee.
+
+For example, to look at Flickr's public feed, search the following:
+  https://api.flickr.com/services/feeds/photos_public.gne
+
+You may have noticed that the format is XML. With JavaScript, it's easier to work with JSON. So, add this query string to the end: ?format=json
+
+Combined: https://api.flickr.com/services/feeds/photos_public.gne?format=json
+
+To learn more about the various Flickr query string parameters, head to https://www.flickr.com/services/feeds/docs/photos_public/
+
+For security reasons, a browser cannot request data from another server on another domain. Developers came up with a clever way to circumvent this problem, using JSONP (JSON with Padding). It involves adding a script tag that loads JavaScript from another server.
+
+http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?
+
+At the end of the above URL, you'll notice a query string of ?jsoncallback=?
+
+It's important because it allows you to bypass security limitations of the same-origin policy.
+
+Here is an example using $.getJSON();
+
+$(document).ready(function() {
+  $('button').click(function() {
+    $('button').removeClass("selected");
+    $(this).addClass("selected");
+    // This is the public feed for the url portion of $.getJSON(url, data, callback)
+    var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+    var animal = $(this).text();
+    // This is the data portion of $.getJSON(url, data, callback)
+    var flickrOptions = {
+      tags: animal,
+      format: "json"
+    };
+    // displayPhotos takes one argument--this is also the callback 
+      // It represents the JSON data returned by jQuery
+       // jQuery parses the data
+    function displayPhotos(data) {
+      var photoHTML = '<ul>';
+      $.each(data.items, function (i, photo) {
+        // data.items represents object 
+        // i = index; photo = value
+      });
+    }
+    // This is every piece, combined
+    $.getJSON(flickerAPI, flickrOptions, displayPhotos);
+  });
+});
+
+
 AJAX : Questions
 
 Q. What does an HTTP status code of 200 indicate?
@@ -202,3 +257,12 @@ A. A URL and a JavaScript object with settings controlling how the AJAX request 
 
 Q. The callback function for jQuery's .fail() method receives a jQuery XHR object as a parameter. What property of the jQuery XHR object provides the response's HTTP status code?
 A. Status.
+
+Q. Which programming languages can be used to "talk" to third-party APIs?
+A. Ruby, PHP, Python, JavaScript, etc.
+
+Q. Why is JSONP important?
+A. JSONP is important because it allows developers to bypass the same-origin policy. In other words, same protocol, host, and port.
+
+Q. How can you load jQuery from a CDN (Content Delivery Network) without violating the same-origin policy?
+A. The src attribute in HTML is not constrained by the same-origin policy. So a script element can be created that goes to any server, fetches a script, and executes it.--Douglas Crockford
