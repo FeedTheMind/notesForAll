@@ -37,6 +37,20 @@ On the "data" event in Node, the response body will be a Buffer, a common data t
 When the data has finished coming in, the "end" event fires, signaling to the user that no more data is heading your way.
 
 
+Node : Errors
+
+Two common errors: exceptions and omitted events
+
+It is best to program defensively. Use the .on('error', function () {}); to handle errors accordingly. Also, use try-catch.
+
+HTTP Status Codes
+
+200 - Okay
+500 - Internal Server Error
+301 - Moved Permanently
+404 - Not Found
+
+
 Node : Questions
 
 Q. If you see an .on() method being called, what does this indicate?
@@ -53,3 +67,6 @@ A. Chrome's V8
 
 Q. What are the four P's?
 A. Prepare, Plan, Perform, Perfect
+
+Q. What property does the HTTP module have to get status codes?
+A. http.STATUS_CODES.
