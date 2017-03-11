@@ -1,0 +1,117 @@
+C# : General
+
+All code is contained in a class. Think of classes as a way to organize your code. 
+
+A program can have any number of classes, and each is usually in its own file.
+
+To distinguish between classes, give them unique names. Usually, the class name will be that of the file.
+
+Normally, classes will have multiple methods within. Methods look like the following: 
+
+  static void Main()
+  {
+    // The parentheses () help identify a method
+  }
+
+When a method is called, it runs the code within its body; the "body" is between the brackets ( {} ).
+
+The void keyword is the type of data returned by the method. In the above, void doesn't pass or return any information.
+
+Main() is an important method, as it is the first method that will run when the program is started. It's a C# rule.
+
+4 P's of Problem Solving
+
+  1) Prepare - Understand the problem and how it can be solved
+  2) Plan - Jot down the steps necessary to create a working solution
+  3) Perform - Execute your plan
+  4) Perfect - Iterate to a desired endpoint
+
+A framework is a large collection of code for building software. In C#, the .NET framework is critical to success as developer. .NET contains many methods and classes.
+
+To print information to the console, use System.Console.Write();
+The semicolon at the end signifies an endpoint.
+
+How can you read what a user has input? Use System.Console.ReadLine(); It will return what the user typed.
+
+How can you store what the user has typed? Use a variable.
+
+string response = System.Console.ReadLine();
+
+Variable names can contain letters, numbers, and underscores (_), but cannot start with a number. Now, to the left of the variable (response) is the type the variable is supposed to hold. In this case, it's a string. So, it must hold a string.
+
+I don't know if you noticed, but System.Console.ReadLine(); has three parts. The method is ReadLine();. So, what are the other two identifiers? Console is the class, and System is the namespace.
+
+Classes are contained in namespaces. Namespaces allow you to create multiple classes with the same name.
+
+Here is an example of a namespace with a class.
+
+namespace Hello
+{
+    class Program
+    {
+        static void Main()
+        {
+            System.Console.WriteLine("Hello, what's up?");
+        }
+    }
+}
+
+Do you have to write the namespace? No! All you have to do is put the using directive at the top with the namespace.
+
+So . . .
+
+using System;
+
+namespace Hello
+{
+    class Program
+    {
+        static void Main()
+        {
+          Console.WriteLine("Hello, what's up?");
+        }
+    }
+}
+
+The above code looks identical; however, the Console class no longer has its namespace (System). By providing a using directive, it will reduce typing and clutter.
+
+C# requires a compiler.
+
+REPL = Read, Evaluate, Print, Loop
+
+In VS (Visual Studio), to launch the REPL, go to View, Other Windows, and then C# Interactive. REPLs are useful to experiment with a new language.
+
+Arithmetic Order of Operations:
+
+() Inner most first and from left to right
+
+/ * % . . . left to right
+
++ - . . . left to right
+
+
+C# : Questions
+
+Q. Can a class contain multiple methods?
+A. Yes, classes are a means of organizing your code. So, if you need multiple methods, no sweat!
+
+Q. What file extension ends a C# file?
+A. .cs
+
+Q. Can a program contain multiple classes?
+A. Yes. But most C# developers will place classes in separate files.
+
+Q. In a C# program, what method runs first?
+A. Main() method.
+
+Q. Can methods run other methods?
+A. Yes, methods can call other methods.
+
+Q. How to make a comment in C#?
+A. Two forward slashes . . . // Hello, I'm a comment
+
+Q. What do strings represent in a computer?
+A. Text.
+
+Q. What does a compiler do?
+A. It converts human-readable code into computer-readable code.
