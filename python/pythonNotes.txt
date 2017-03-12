@@ -187,6 +187,85 @@ The above will import the random library. A cool method within the random librar
     The above code will choose a random word from the words list and print it to the console. Note: Indentation is important in Python. If you plan to test any of the code, make certain to use appropriate spacing. Head to this link to learn more: https://www.python.org/dev/peps/pep-0008/#indentation
 
 
+Python : Mathematical Operations
+
+>>> a = 12
+>>> b = 3
+>>> a + b  # addition
+15
+>>> b - a  # subtraction
+-9
+>>> a // b  # integer division
+4
+>>> a / b  # true division
+4.0
+>>> a * b  # multiplication
+36
+>>> b ** a  # power operator
+531441
+
+>>> 7 / 4  # true division
+1.75
+>>> 7 // 4  # integer division, flooring returns 1
+1
+>>> -7 / 4  # true division again, result is opposite of previous
+-1.75
+>>> -7 // 4  # integer div., result not the opposite of previous
+-2
+
+
+Python : Collections
+
+Two types of collections in Python are string and list. There is one major difference between the two: immutability. Strings are immutable, whereas lists are mutable. 
+
+List
+
+There are a few ways to add items to a list: 1) add two lists, 2) multiple a list by itself, 3) extend() or append() or insert()
+
+If you want to add (concatenate), each collection must be a list.
+
+Ex:
+
+list_one = ['I am list one.']
+list_two = ['And I am list two.']
+
+list_one += list_two
+
+print(list_one)
+
+# ['I am list one.', 'And I am list two.']
+
+If you use the append method, the item passed in does not have to be a list, unless you require a list.
+
+Ex: list_ex = ['Guess what I am--a list!']
+
+    list_ex.append('Really, cool story.')
+
+    print(list_ex)
+
+    # ['Guess what I am--a list!', 'Really, cool story.']
+
+
+But what if you require more than one item passed in? Use .extend(['Some text.', 'Some more text'])
+
+The interesting thing about extend() is that you can use it with something that isn't a list as long as the argument is iterable--string, etc.
+
+  Ex:
+    a = [1, 2, 3]
+    a.extend('abc')
+    print(a) # [1, 2, 3, 'a', 'b', 'c']
+
+
+The last method is insert(). It allows you to insert, as long as you know the index, an item into a list.
+  # Note: Like append(), insert() "inserts" whatever you give it. So, if you give it a list, it will insert a list.
+  
+  Ex: 
+    list_items = [1, 2, 3, 4]
+    list_items.append(5)
+
+    print(list_items) # [1, 2, 3, 4, 5] 
+
+
 Python Notes : Helpful Websites
 
 Built-in Functions . . . https://docs.python.org/2/library/functions.html
