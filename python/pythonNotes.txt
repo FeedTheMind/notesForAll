@@ -157,12 +157,54 @@ try is a keyword that allows one to test for an exception.
 To "catch" an exception, use the keyword except, specifying the exception to "catch." Now, does one have to specify an except value--no. However, it's bad practice to leave it out.
 
 
+Python : Import
 
+Python is considered a "batteries included" language because of the built-in tools that come with it. To use these tools, use the import keyword. So, in order to a use a library, type import and then the library you want to use.
 
+  Ex: 
 
+  import random
 
+The above will import the random library. A cool method within the random library is choice(). choice() picks a "random" thing out of an iterable item.
+
+  Ex:
+    words = [
+        'apple',
+        'banana',
+        'orange',
+        'coconut',
+        'strawberry',
+        'lime',
+        'grapefruit',
+        'lemon',
+        'kumquat',
+        'blueberry',
+        'melon'
+    ]
+
+    random_word = print(random.choice(words))
+
+    The above code will choose a random word from the words list and print it to the console. Note: Indentation is important in Python. If you plan to test any of the code, make certain to use appropriate spacing. Head to this link to learn more: https://www.python.org/dev/peps/pep-0008/#indentation
 
 
 Python Notes : Helpful Websites
 
 Built-in Functions . . . https://docs.python.org/2/library/functions.html
+
+
+Python : Questions
+
+Q. In Python, blocks start with a colon. What groups all lines of a particular block together?
+A. Indentation.
+
+Q. Does Python automatically add a space after input() prompt?
+A. No, it doesn't.
+
+Q. Which loop runs a set number of times?
+A. for loop
+
+Q. What keyword makes a function send back information?
+A. return
+
+Q. Here is the string "apple". To access the "e," which negative index would you use?
+A. -1
