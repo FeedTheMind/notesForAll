@@ -218,7 +218,7 @@ Python : Collections
 
 Two types of collections in Python are string and list. There is one major difference between the two: immutability. Strings are immutable, whereas lists are mutable. 
 
-List
+Lists
 
 There are a few ways to add items to a list: 1) add two lists, 2) multiple a list by itself, 3) extend() or append() or insert()
 
