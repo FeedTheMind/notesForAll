@@ -263,7 +263,69 @@ The last method is insert(). It allows you to insert, as long as you know the in
     list_items = [1, 2, 3, 4]
     list_items.append(5)
 
-    print(list_items) # [1, 2, 3, 4, 5] 
+    print(list_items) # [1, 2, 3, 4, 5]
+
+
+Python : Remove (Item)
+
+Two ways: del and remove()
+
+del keyword uses the item's index to remove it. 
+  Ex:
+    a = [1, 2, 3, 4]
+    del a[0] # This removes the item at index 0, which is 1
+
+remove() method removes an item by its value.
+  Ex:
+    b = ['happy', 'glad', 'positive']
+    b.remove('happy') # This removes 'happy' from the list
+    Note: remove() only removes the first find. For example . . .
+
+    new_list = ['happy', 'happy', 'joy', 'joy']
+    new_list.remove('happy') # This removes the first happy, at index 0, not the second one
+
+Both of these methods are excellent ways to remove or delete a value; however, neither provides a way to see what has been removed. Enter--pop(). The pop() method removes an item by its index, but instead of throwing the item away, it returns the "popped" item's value. If no index is specified, the last item in a list is "popped."
+
+  Ex: 
+    your_list = ['Name_1', 'Name_2', 'Name_3']
+    new_list = your_list.pop() # Since no index specified, Name_3 will be popped
+
+    your_list = ['Name_1', 'Name_2', 'Name_3']
+    new_list.pop(0) # "Pops" Name_1
+
+
+Python : Slices
+
+  Ex:
+    favorite_things = [1, 2, 3, 4, 5]
+    print(favorite_things[0:4]) # Prints [1, 2, 3, 4]
+
+  favorite_things[0:4] # This starts at index 0 and ends (and doesn't include) index 4
+
+Keep in mind that "slices" will always return the data type from which they were sliced. 
+
+Note: Both start and stop are optional. If you leave off start, the slice will start at the beginning of the iterable. If you leave off stop, the slice will continue until the end of the iterable. Also, if you leave out the start and stop options, you will get back what appears to be your list. In fact, it is a copy of your list.
+
+  Ex: messy_list = [3, 5, 1, 4, 2]
+
+  If you use the sort() method on messy_list, the items will be sorted accordingly. However, what would happen if you decided to use messy_list at a later point? It would be sorted. The best solution is to make a copy, using slice.
+
+  clean_list = messy_list[:]
+  clean_list.sort() # Produces [1, 2, 3, 4, 5], leaving messy_list as is . . . [3, 5, 1, 4, 2]
+
+
+Python : Dictionaries
+  Ex:
+    some_dictionary = {
+        'name': 'some_name',
+        'age': some_age,
+    }
+
+Dictionaries are not sorted, so using an index value to access a value will not work. Instead, use the dictionary's key. 
+
+  Ex:
+    some_dictionary['name'] # 'some_name'
+
 
 
 Python Notes : Helpful Websites
@@ -287,3 +349,6 @@ A. return
 
 Q. Here is the string "apple". To access the "e," which negative index would you use?
 A. -1
+
+Q. What are the three parts of the slice syntax?
+A. [start:stop:step]
