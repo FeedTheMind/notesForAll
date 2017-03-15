@@ -13,6 +13,7 @@ def show_help():
 Enter 'DONE' to stop adding items.
 Enter 'HELP' for this help.
 Enter 'SHOW' to see your current list.
+Enter 'REMOVE' to delete an item from your list.
     ''')
 
 
@@ -49,6 +50,16 @@ def show_list():
 
         print('-' * 10)
 
+def remove_from_list():
+    show_list()
+    what_to_remove = input('Which item do you want to remove?\n').upper()
+
+    try:
+        shopping_list.remove(what_to_remove)
+    except ValueError:
+        pass
+    show_list()
+
 show_help()
 
 holder = True
@@ -63,6 +74,8 @@ while holder:
         show_help()
     elif new_item == 'SHOW':
         show_list()
+    elif new_item == 'REMOVE':
+        remove_from_list()
     else:
         add_to_list(new_item)
         show_list()
