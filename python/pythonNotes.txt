@@ -321,11 +321,52 @@ Python : Dictionaries
         'age': some_age,
     }
 
-Dictionaries are not sorted, so using an index value to access a value will not work. Instead, use the dictionary's key. 
+Dictionaries are not sorted, so using an index value to access a value will not work. Instead, use the dictionary's key. (Keys are usually strings or integers.)
 
   Ex:
     some_dictionary['name'] # 'some_name'
 
+To delete a key-value pair from a dictionary, use the del keyword plus the variable['some_key'].
+  Ex:
+    some_dict = {'your_name': 'name_value', 'your_age', age_value}
+    del some_dict['your_age'] # This will delete the key-value pair of 'your_age' and age_value.
+
+To update a dictionary, you can add a new value by using a key-value pair.
+
+  Ex: 
+    some_dict = {'your_name': 'name_value', 'your_age', age_value}
+
+    some_dict['favorite_food'] = 'your_favorite_food'
+    # This will add the above key-value pair, favorite_food/your_favorite_food.
+
+The above way of adding to a dictionary works well; however, it can be tedious, as each key-value pair must be added individually. Thankfully, Python offers a cool method: update()
+
+  Ex:
+    some_dict = {'your_name': 'name_value', 'your_age': age_value}
+    some_dict.update({'job': 'your_job', 'favorite_drink': 'your_favorite_drink'})
+
+    The update() method takes a dictionary as an argument and adds it to some_dict. In other words, after update, some_dict will hold 'your_name': 'name_value', . . . 'favorite_drink': 'your_favorite_drink'. Cool!
+
+
+Python : Tuples
+
+Lists are great, but sometimes you must ensure your data is safe and unchangeable. Python gives us tuples for this.
+
+Tuples are immutable--they cannot be changed.
+
+To make a tuple, do the following . . .
+  Ex:
+    my_tuple = (1, 2, 3)
+    print(my_tuple) # prints (1, 2, 3)
+  Note: Many think the parentheses are what make a tuple; however, if you do the following . . . 
+
+    Ex:
+      my_tuple = 1,
+      print(my_tuple) # Prints (1,)
+
+    The above code will print (1,). But how was it able to do that without the parentheses? If you guessed the comma after 1, you're right! Keep in mind that (1) would not have made a tuple; it, too, would have needed a comma: (1,).
+
+Although tuples cannot be modified, as they are immutable, a mutable value, such as a list, inside a tuple can be changed.
 
 
 Python Notes : Helpful Websites
@@ -352,3 +393,14 @@ A. -1
 
 Q. What are the three parts of the slice syntax?
 A. [start:stop:step]
+
+Q. What method changes several keys and values at once?
+A. update() method.
+
+Q. If you have the following dictionary . . . 
+    test_dict = {"a": 1, "a": 2, "a": 3}
+   . . . which value will be returned from test_dict['a']?
+A. 3--because keys are created in order, so the last key-value pair would take ownership.
+
+Q. Do dictionary keys have an order?
+A. No, there is not a sorted order.
