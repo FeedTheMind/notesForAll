@@ -369,6 +369,45 @@ To make a tuple, do the following . . .
 Although tuples cannot be modified, as they are immutable, a mutable value, such as a list, inside a tuple can be changed.
 
 
+Python : Sets
+
+A set is a collection of unique items that belong together for a reason, and these reasons can be anything: prime numbers, favorite foods, etc. 
+
+Sets are iterable, like lists, tuples, and strings. But each item is unique and has no indexes or a defined order.
+
+To create a set, enclose values within curly brackets. {}
+
+  Ex: 
+    {1, 2, 3}
+  Note: Empty curly brackets (or braces) create a dictionary.
+  type({}) # <class 'dict'>
+  type({1}) # <class 'set'>
+
+To add items to a set . . . add() method.
+
+  Ex: 
+    numbers = {1, 3, 5, 7}
+    numbers.add(9) # Adds 9 to the set
+    # Sets are mutable.
+
+To update a set . . . update() method. The update() method will allow you to update with multiple sets.
+  Ex:
+    numbers = {1, 3, 5, 7}
+    numbers.update({9, 11}, {13, 15}) # Now, numbers will hold {1, 3, 5, 7, 9, 11, 13, 15}
+
+To remove an item . . . remove() method. If the value exists, it will be removed; however, if it does not exist, a KeyError will  be thrown. Thankfully, Python has a cool method to help in these cases: discard(). If the discard() method is used on a value that does not exist, nothing happens.
+
+Sets have operators (or methods).
+
+| or .union(*others)--all of the items from all of the sets, without repetition; also, does not update the value of any sets
+
+& or .intersection(*others) - all of the common items between all of the sets; order matters for these
+
+- or .difference(*others) - all of the items in the first set that are not in the other sets; order matters for these, too
+
+^ or .symmetric_difference(other) - all of the items that are not shared by the two sets
+
+
 Python Notes : Helpful Websites
 
 Built-in Functions . . . https://docs.python.org/2/library/functions.html
@@ -404,3 +443,9 @@ A. 3--because keys are created in order, so the last key-value pair would take o
 
 Q. Do dictionary keys have an order?
 A. No, there is not a sorted order.
+
+Q. What method gives us a list of (key, value) tuples from a dictionary?
+A. .items()
+
+Q. Are dictionaries, lists, strings, and tuples collections?
+A. Yes!
