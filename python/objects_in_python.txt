@@ -1,0 +1,274 @@
+Python : Objects
+
+This section of notes deals with objects in Python. I know, the filename and title give it away, give it away, give it away now! ;)
+
+Objects (also known as classes) let us create predictable bundles of code. 
+
+So if you know that you need an item with specific attributes and functionality (also known as methods), objects are your best choice. 
+
+You may be asking yourself, "What are attributes and methods, though?"
+
+Well, boiled down, object-oriented programming (OOP) can be translated into objects in the real world. For example, if you think of a cat as an object, what attributes and methods would you expect? 
+
+List of attributes: texture of fur, color of eyes, sharpness of claws, size of body, etc.
+
+List of Methods: walking, eating, sleeping, meowing, knocking over inanimate objects on accident (on purpose), etc.
+
+If you could not think of any attributes or methods for a cat, that is okay. Over the course of these notes, I hope to help.
+
+If you guessed that attributes and methods are equivalent to adjectives and verbs in English, give yourself an air five!
+
+So when you think of a cat in the real world, think about what defines it: size, personality, etc. These are the attributes ("adjectives") of Python programming. The ability to do things--walk, eat, sleep, etc.--are the methods or functions ("verbs") of Python programming.
+
+In Python, creating multiple objects (classes) in a single file is fine, but it's best practice to place each class (object) into its own file.
+
+Before we create an object, I think it best to create a function.
+
+In Python, to define a function, you use the keyword def. So, if you're ever browsing code and come across def some_name():, that simply is code lingo for, "Hey, take whatever I put in this block of code and turn it into a function."
+
+But what is a "block of code"? Onward!
+
+Also, don't forget to place a colon at the end of the function definition.
+
+def some_func(some_placeholder):
+    # This is a comment. It is not interpreted by the interpreter.
+    # How do you know it's a comment? 
+    # <-- That symbol defines a comment. 
+    # Some call it hash sign (or tag), pound symbol, and so on.
+
+    # Because the interpreter ignores comments, it's great to get into the habit of using them because it helps you and others understand your code now and later.
+
+    # Note: Everything nested in the some_func is a block of code. 
+
+    # In Python, it is convention to indent the nested code by four spaces.
+
+    print(parameter) 
+
+    # This is the print method.
+    # It says, "Hey, whatever argument has been passed to the 
+    function, bring it to me and I will print it to the console."
+
+
+Above, you will see a simple function. (Remember: A function begins with the def keyword.) The function's name is some_func. This some_func name can be anything, as long as it abides by the rules below. Note: There are more rules to naming a function, but this is a good generality.
+
+In Python, function names usually are all lowercase letters separated by underscores (_). Inside of the parentheses (), you will notice a word, some_placeholder. Without going into too much detail, parameters (which is the some_placeholder name) are passed arguments that run when the code is executed (called).
+
+If you're scratching your head, thinking, "Parameter, argument, executed?" read on! :)
+
+So, how do we run the above code? Well, make certain that Python is installed on your machine. Use Google or YouTube to search for your OS (operating system) and Python 3.x. (The x in 3.x means the version. For example, Python 3.1, 3.2, 3.3, etc. Choose a stable version.)
+
+If you have discovered that Python 3.x came installed or have installed it, head to your command line (also known as console, terminal, etc.). Create a folder (also known as a directory) and save the above function in a file named function.py. In Python, .py is the extension for saving Python scripts.
+
+Note: Some familiarity with the command line is helpful. If you have never used one before, try this resource: https://learnpythonthehardway.org/book/appendixa.html. Now, keep in mind that you will have to learn commands (commands--you guessed it--are "commands" for the console) for your environment: Windows, Linux, macOS, etc.
+
+With your command line still open, type python. If it is installed correctly, you will see the following:
+
+Python 3.6.0 (Other stuff goes here.)
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+
+The three symbols (>>>) are the Python prompt. It's an indication that the Python interpreter, a means of testing Python code, is ready for action. To exit, press Ctrl Z or type exit(), followed by Enter (return key).
+
+So, you now know that Python has been installed properly. Let's go back to interactive mode, the one with the >>> symbols.
+
+Type python in the command line.
+
+Now, to execute (call) a function, use the function's name, followed by parentheses and argument(s). Note: parameters are placeholders for arguments. You pass arguments into the function. Arguments can be strings, numbers, lists, etc. 
+
+>>> some_funct("Hello, World")
+
+What? It didn't work. Instead of seeing "Hello, World," we received a Traceback with a NameError.
+
+Hmm, let's figure that out. 
+
+Let's see here. The NameError says, "name some_func is not defined."
+
+Well, that doesn't make any sense. We defined some_func in our function.py file. But the issue is that Python has no access to this function. So how do we access it. Great question!
+
+Head back to the command line and do the following:
+
+>>> from function import some_func
+
+The above code didn't spit out any errors. That's a good thing. But what does it mean?
+
+from is a keyword that says, "Hey, Python, could you grab from the function file and import the some_func function. Thanks!"
+
+So, let's run that function again.
+
+>>> some_func('Hello, World!')
+Hello, World!
+>>>
+
+If "Hello, World!" is without >>> symbols, you did it! Nice job.
+
+To summarize, use def keyword to "define" a function, parentheses to enclose parameters, a colon after the function definition, and indentation in your code block (four spaces). With the function and the block of code flushed out, just call the function and pass arguments, not parameters, to it. 
+
+
+########
+
+
+Now, to make a class (object), you must use the keyword class. Usually, the name of the class will begin with a capital letter. Like a function, classes are blocks of code; so indentation is expected.
+
+Attributes are values that the class holds onto, but they can be changed on an instance of the class. 
+
+A what? An instance? That's weird.
+
+Let me explain.
+
+Create a new file named monster.py.
+
+Type the following:
+
+class Monster:
+    hit_points = 1
+    color = 'yellow'
+    weapon = 'sword'
+
+To access this Monster class, head to the command line, type python, and then do the following (in the Python interpreter):
+
+>>> from monster import Monster
+
+If you skipped the paragraphs from before, you may be wondering, "What did that do?" Well, the above, from monster import Monster, says, "from the monster file import the Monster class. Do it now! COME ON!" Yikes, that class really is a monster. ;)
+
+To access the attributes of the Monster class, use dot syntax. So, to access the Monster's color, do the following:
+
+>>> Monster.color # Note: The period (dot) between the Monster class and its property is dot syntax.
+'yellow'
+>>>
+
+The result: 'yellow'.
+
+So, classes (objects) on their own are great at holding information, but you don't want to change the class every time you need a new attribute or method. So, what do you do? You make an instance of the class.
+
+To create an instance of the Monster class, do the following:
+
+>>> jubjub = Monster() # The parentheses must be included.
+
+Now, jubjub holds the attributes and methods associated with the Monster class.
+
+>>> jubjub.hit_points
+1
+>>> jubjub.color 
+'yellow'
+>>> jubjub.weapon
+'sword'
+
+Is it possible to change the above attributes on the jubjub instance? If you said yes, BAM! Correct-ah-mundo!
+
+>>> jubjub.hit_points = 5
+>>> jubjub.hit_points
+5
+
+The change will only affect the jubjub instance of the Monster class. In other words, if you create another instance of the Monster class, it will not hold the value of 5 for the hit_points attribute.
+
+Try it out. Go to the command line, type from monster import Monster, and experiment with different instances of the Monster class.
+
+Now that you've had a taste of attributes of a class, let's discuss methods. In Python, functions that belong to a class are known as methods. Remember: Because a function belongs to a class, it's a method. 
+
+In the monster.py file, add the following:
+
+class Monster:
+    hit_points = 1
+    color = 'yellow'
+    weapon = 'sword'
+    sound = 'roar'
+
+    # Every method of a class takes the self argument, for the most part. It is similar to an antecedent in English. So, when an instance of the Monster class is created, it is saying to do something to "this" (self) instance. 
+
+    def battlecry(self):
+        return self.sound.upper()
+
+Now, go back to the command line, type python, and create a new instance of Monster. Don't forget to from monster import Monster.
+
+>>> spooky_monster = Monster()
+>>> spooky_monster.battlecry()
+'ROAR'
+
+Interesting. The value is 'ROAR,' not 'roar.' Why is that? Well, the upper() method on sound will uppercase the values.
+
+
+Let's modify the Monster class, using the __init__ method. This method runs when a new instance of a class is created. It allows certain attributes to hold certain values. Note: Some will call __init__ a dunder init.
+
+In your monster.py file, do the following to your Monster class . . . 
+
+class Monster:
+    def __init__(self, hit_points, weapon, color, sound):
+        self.hit_points = hit_points
+        self.weapon = weapon
+        self.color = color
+        self.sound = sound
+
+    def battlecry(self):
+       return self.sound.upper()
+
+The cool thing about using the dunder init method is that it allows one to create instances with various attributes. I know, you're probably thinking, "What does that mean?" Well, when you create an instance of an object without the dunder init method ( __init__() ), all instances will have the same values. For example, in the original Monster class, all instances would hold 'yellow', 'roar', etc. as their values. It doesn't have to be that way any longer.
+
+Now, let's instantiate (create an instance of a class) a new Monster.
+
+>>> some_monster_name = Monster()
+
+If you run the above code, you'll receive a TypeError: missing 4 required positional arguments. This means that you need to supply arguments to some_monster_name.
+
+So, let's pass those arguments.
+
+>>> some_monster_name = Monster(100, 'ax', 'green', 'grrrrr')
+
+>>> some_monster_name.weapon
+'ax'
+
+Sweet, we now have the ability to create monsters with various weapons, colors, etc. All is well in the world. But . . . what happens if you have many attributes. Will you remember the order? It's best to give the dunder init ( __init__() ) method default values. So . . .
+
+ class Monster:
+    def __init__(self, hit_points=100, weapon='ax', color='green', sound='grrrrr'):
+        self.hit_points = hit_points
+        self.weapon = weapon
+        self.color = color
+        self.sound = sound
+
+    def battlecry(self):
+       return self.sound.upper()
+
+Now when a new instance is created, you don't have to supply attributes by means of arguments. But you can always add them as you see fit.
+
+
+*******
+
+
+Now, the following code is for the brave of heart. If you are new or relatively new to programming, do your best to work through it. Search documentation, websites, etc. to find answers. You may not understand it off the bat, and that's okay. Exposure to new concepts takes time to stick, but the key is exposing yourself to new ideas so that you learn as your progress.
+
+
+Head back to monster.py. Let's do another modification of the Monster class.
+
+class Monster:
+    def __init__(self, **kwargs):
+        self.hit_points = kwargs.get('hit_points', 1)
+        self.weapon = kwargs.get('weapon', 'sword')
+        self.color = kwargs.get('color', 'yellow')
+        self.sound = kwargs.get('sound', 'grrrr')
+
+    def battlecry(self):
+       return self.sound.upper()
+
+In the above code, **kwargs does not have to be the named used when creating keyword arguments, but it is a common convention.
+
+Bonus: If you're wondering what **kwargs and get() method do, now is the perfect time to satisfy that curiosity! Search, read, ask questions, do whatever it takes to gain some insight into what is happening. I'll give you a hint: "packing" and "unpacking" are cool concepts when it comes to **kwargs. Also, Python documentation has a great resource on the get() method. Find it and study up! :)
+
+
+########
+
+
+Python : Questions
+
+Q. What is another name for a function that belongs to a class?
+A. Method.
+
+Fill in the blank. 
+
+A(n) ____________ is a new copy of a class.
+Answer: instance
+
+Q. How would you delete an instance?
+A. Use the del keyword plus the instance.
+
+Q. What method overrides changes to an instance of a class?
+A. __init__ 
