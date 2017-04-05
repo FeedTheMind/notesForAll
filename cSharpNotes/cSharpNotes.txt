@@ -81,15 +81,81 @@ REPL = Read, Evaluate, Print, Loop
 
 In VS (Visual Studio), to launch the REPL, go to View, Other Windows, and then C# Interactive. REPLs are useful to experiment with a new language.
 
-Arithmetic Order of Operations:
+Arithmetic Order of Operations (Highest to Lowest Precedence):
 
-() Inner most first and from left to right
+() Inner most first and from left to right (Highest Level of Precedence)
 
 / * % . . . left to right
 
-+ - . . . left to right
++ - . . . left to right (Lowest Level of Precedence) 
+
+In C#, there are multiple numeric data types. For example, int, short for integer, can store numbers (negative or positive) without a decimal.
+
+One way to convert a string to an integer is to use the int's Parse() method. Note: Classes are also known as types. So, when thinking about a class, think type. Also, int is a shorthand for Int32, the "true" class (type).
+
+string someNumber = "55";
+int.Parse(someNumber); // This will parse someNumber to 55, an int
+
+Let's say that you need to repeat code. You could copy and paste; however, a better solution is to use a loop. The simplest type is a while loop.
+
+A while loop keeps running until a condition evaluates to false.
+
+Below is the structure of a while loop:
+
+while (// This is where the condition goes) 
+{
+// This section, between the {}, is the code block
+}
+
+Ex:
+int counter = 0;
+while (counter < 10) 
+{
+    Console.WriteLine(counter);
+    counter += 1 // This line is important, as it will eventually "break" out of the loop
+}
+
+The above code says the following, "While counter, which is at 0 at the beginning, is less than 10, "write" to the console the value of counter. Afterwards, increment counter by 1. Repeat (or loop) the process until counter is no longer less than 10.
+
+What if instead of incrementing a variable, like above, you wanted to exit a loop with another condition? Good news, if-else conditions are an excellent solution.
+
+Like a while loop, if-else are pretty similar in appearance.
+
+if (// Condition goes here) 
+{
+    // Your code
+    break; // The break statement is important, as this is what "breaks" out of one's code
+}
+else // This else only runs if the if condition evaluates to false
+{
+    // Your code
+}
+
+But what if you have more than one condition to evaluate--what should you do? Well, you can combine multiple if-else statements!
+
+if (// Condition)
+{
+    // Code that will run if condition true
+}
+else if (// Another condition) 
+{
+    // Code tha will run if condition true
+}
+else 
+{
+    // Code that will run if no condition is true
+}
 
 
+Refactoring
+
+Once you have finished writing a C# program, a great thing to do afterwards is refactoring. But what is "refactoring"? In a nutshell, refactoring is when you scan through your code and change anything that can be simplified. For example, instead of specifying the type of a variable, you can use the var keyword. 
+
+Ex: 
+    string someName = "Mr. Pink";
+    var someName = "Mr. Purple";
+
+ 
 C# : Questions
 
 Q. Can a class contain multiple methods?
