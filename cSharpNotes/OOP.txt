@@ -1,0 +1,47 @@
+Object-Oriented Programming (OOP)
+
+What is object-oriented programming in C# (pronounced "see sharp")? In a nutshell, OOP is a software program of distinct objects working together.
+These objects, like objects in the real world, have their own attributes and methods. 
+
+Attributes = characteristics (height, weight, etc.)
+Methods = behaviors (walking, running, etc.)
+
+
+C# Types
+
+Every object is of a type. For example, strings, ints, and doubles are types. (Keep in mind that every value a variable can take on is an object.)
+
+int x = 10; // This is of type int
+
+double y = 3.14 // This is of type double
+
+string person = "Bob" // This is of type string
+
+Does that mean we are limited to these types? Nope! There are others, or we can create our own. But how do we create our own? With classes (types), which are a template for creating objects. 
+
+Each individual object is an instance of the class. 
+
+To illustrate this concept, let's think about a grill (acting as our C# class). You can cook burgers on this grill, so let's make burgers. Each of these burgers (instances) can vary in size, shape, and color, based on manipulation of its attributes (fields). So, each burger is of the grill type (or class).
+
+How would we create one of these objects, though?
+
+Use the class keyword . . . 
+
+class Grill // Convention is that first letter is capitalized 
+{
+    // This is an example, so no attributes or methods here
+}
+
+To instantiate (create) a new object from the Grill class, do the following:
+
+Grill grill = new Grill();
+
+The above code says, "Hey, give me the Grill type (class) and create a new Grill object. Oh, let's name it grill, too. Thanks!"
+
+Now, grill, the newly created object, has access to the attributes and methods of the Grill class. (Note: Because we did not establish any attributes or methods on the Grill class, grill has nothing to do . . . so sad.)
+
+
+C# Questions
+
+Q. What is another name for object-oriented programming?
+A. OO or OOP.
