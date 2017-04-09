@@ -41,6 +41,14 @@ The above code says, "Hey, give me the Grill type (class) and create a new Grill
 Now, grill, the newly created object, has access to the attributes and methods of the Grill class. (Note: Because we did not establish any attributes or methods on the Grill class, grill has nothing to do . . . so sad.)
 
 
+C# Fields
+
+In C#, fields (or the attributes of a class) can have access modifiers. Two common access modifiers are private and public. If you see private before a type, it means that the attributes are only accessible to methods of the same class. On the other hand, public can be accessed by any method in any class.
+
+private int SomeNumber;
+public int SomeOtherNumber;
+
+
 C# Questions
 
 Q. What is another name for object-oriented programming?
