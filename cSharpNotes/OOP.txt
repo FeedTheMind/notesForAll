@@ -49,7 +49,52 @@ private int SomeNumber;
 public int SomeOtherNumber;
 
 
+C# Inheritance
+
+OOP has four core areas: inheritance, encapsulation, polymorphism, and abstraction. 
+
+Inheritance allows a derived class (or child class) to inherit the attributes and methods of its base class (or parent class). 
+
+class Animal // Base
+{
+    public readonly int X; // This defines a field (attribute)
+    public readonly int Y;
+
+    public Animal(int x, int y) // This is a constructor for creating instances of Animal
+    {
+        X = x;
+        Y = y;
+    }
+}
+
+class Bird : Animal // The colon (:) makes Bird a derived class of Animal, the base class 
+{
+    // When a Bird is created (instantiated), you must pass arguments to the base's constructor--this is what : base(x, y) is for
+    public Animal(int x, int y) : base(x, y) 
+    {
+
+    }
+}
+
+In the above code, the Bird class is inheriting from the Animal class. In other words, classes inherit from other classes. 
+
+
 C# Questions
 
 Q. What is another name for object-oriented programming?
 A. OO or OOP.
+
+Q. In C#, a comment allows a programmer to write pseudo-code that is not interpreted by the compiler. So, how do you create a comment in C#?
+A. // This is a comment
+
+Q. What do classes inherit from?
+A. Other classes.
+
+Q. What are the four core principles of object-oriented programming?
+A. Inheritance, encapsulation, polymorphism, and abstraction.
+
+Q. What is another name for the base class?
+A. Parent class.
+
+Q. What is another name for a derived class?
+A. Child class.
