@@ -1,0 +1,117 @@
+NPM
+
+npm stands for Node Package Manager. (Technically, it does not stand for anything.) It is a package manager for Node.js, commonly used for installing packages. 
+The nice thing about the package manager is that it allows a user to install, update, and uninstall packages via the command line.
+
+You may be asking yourself, "What is an npm package?" 
+
+1) It is a bundle of software.
+2) It is mainly JavaScript code.
+3) It is called a module. Note: Package and module may be used interchangeably. 
+
+How do you acquire npm? It comes bundled with Node(.js), so download Node and you should be off to the races. However, if you don't want Node, you can download npm by itself.
+
+Let's say that you have decided to add several packages to a project you are working on. How would you know which packages to add?
+
+Head to npm's website (https://www.npmjs.com/) and ask yourself:
+
+1) Which one is more (most) popular?
+2) Which one has more (most) "stars" and "forks"?
+3) How many contributors does it have?
+4) How many issues does it have?
+5) How many releases does it have?
+
+To see the list of available commands in npm, type npm in the command line. 
+
+If you need further information about one of the commands listed, type npm <the_name_of_the_command_> -h 
+
+Example: 
+    npm install -h
+
+The above code will list further information. 
+
+With that in mind, let's say that we are ready to install a package
+that encrypts strings. A resourceful package is bcrypt. 
+
+To install, type the following in the command line:
+
+npm install bcrypt
+
+That will install the latest version of bcrypt. (To clear the console screen, type clear.)
+
+If you use the dir or ls command, depending on your environment, you should see a list of installed folders/files.
+
+You should see a special folder in your directory: it is called node_modules. In this folder, you have the bcrypt folder and all the code the bcrypt package requires. Normally, you don't need to do anything in these folders. Keep in mind that you can look at the source code, if interested. So, now that you have this information in your folder (directory), how do you include it in a project?
+
+First, create an app.js file in your directory.
+
+You can manually do this, or do the following from the command line: 
+
+touch app.js (Do this in a Unix environment.)
+NUL > app.js (Do this in a Windows environment.)
+
+To use bcrypt, go to package page on NPM, its GitHub, or README (in bcrypt folder).
+
+I have included a small example in the app.js file.
+
+To run it from the command line, do the following:
+
+node app.js
+
+You should see that the "password" variable has been encrypted.
+
+
+npm Global packages
+
+The previous example installed local packages. But what if we want to install a global package? You have to add a special option (or flag) to install a package globally. But before that, let's figure out when to install something globally. Usually, if you are working with a command-line utility or something that is applicable to all types of projects, you'd install a package globally.
+
+So, let's install http-server globally.
+
+Type the following in the command line: 
+
+npm install http-server -g
+
+The -g option (flag) says, "Hey, install this package globally. Thanks."
+
+To start a server, type http-server, followed by the folder (file) you want served.
+
+
+npm Managing Dependencies with Package.json
+
+What is so special about managing packages? Well, without package management, you'd have to manually keep your packages up to date. This works, but managing package dependencies is much easier.
+
+It is the package.json file that makes the magic happen, but how do we crate a package.json file?
+
+You can manually create this file, or you can create it with the following command: npm init
+
+The first prompt will be name: <It is the name of the folder you are currently in. In my case, it's a folder named npm.> But I am going to rename the folder to hash_generator, followed by Enter.
+
+The next prompt is version: 0.0.1, followed by Enter.
+
+description: A password hash generator, followed by Enter.
+
+entry point: (app.js) Just press Enter.
+
+test command: <Add tests if you plan to develop something professionally.> Press Enter.
+
+git repository: leave empty and press Enter.
+
+keywords: <Helps people search on npm.> Leave empty and press Enter.
+
+author: <Enter your name> "Your Name" followed by Enter.
+
+license (ISC): MIT <License tells others how they may use your project.>
+
+With the above information configured, you now have a package.json file in your folder.
+
+
+npm Questions
+
+Q. Is npm only used to install modules for Node.js?
+A. No. npm can be installed without Node.js.
+
+Q. What is an npm package?
+A. A module (which is a bundle of software).
+
+Q. Is GitHub a great website to see if an npm module is reliable?
+A. Yes. 1) Contributors, 2) Issues, 3) "Stars", etc.
