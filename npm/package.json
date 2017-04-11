@@ -4,11 +4,14 @@
   "description": "A password hash generator",
   "main": "app.js",
   "dependencies": {
-    "bcrypt": "^1.0.2"
+    "bcrypt": "^1.0.2",
+    "colors": "^1.1.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "King Author",
   "license": "MIT"

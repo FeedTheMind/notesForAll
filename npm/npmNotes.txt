@@ -104,6 +104,118 @@ license (ISC): MIT <License tells others how they may use your project.>
 
 With the above information configured, you now have a package.json file in your folder.
 
+If you inspect the package.json file, you'll notice that bcrypt
+has been added as a dependency. How would we add more dependencies?
+
+Well, let's say that you want to convert the hash of characters into 
+a hash of colorful characters. There is an npm package that can do this: colors.
+
+Type the following in the command line (or terminal):
+npm install colors --save 
+
+The above code says, "Install the colors module (package) and save (add) it to my package.json dependencies section."
+
+
+Now, head to your package.json file and you will notice that colors has been added to the dependencies section.
+
+Now, if you see any warnings, this is usually not a problem, as it indicates that something is missing. In our case, we neglected to add a repository field or README data.
+
+I have added a colors example to the app.js file. You'll notice at the top of the app.js file the function require() being used on both bcrypt and colors. Require is needed as it "requires" the module's (package's) information. In the colors readme, you can find several examples. For this, I have changed the text to green. So, run the following in the command line:
+
+node app.js
+
+You should see green characters now.
+
+Let's say that you have decided to upload your project to GitHub. Everything is going smoothly, but before you upload, you think to yourself, "Should I upload the node_modules folder?"
+
+Good thought. You could, but it's best to create a special file: .gitignore. 
+
+In the .gitignore file, type the path to the files or folders you want to ignore. In our case, type the following:
+node_modules
+
+The above is import because it tells Git not to track the node_modules folder.
+
+We're chugging along. Let's say that we have downloaded someone's project. We're checking it out and soon realize that it doesn't have a node_modules folder. However, it does have a package.json file. Can we do something with the package.json file to acquire a node_modules folder?
+
+Yes! 
+
+If you're thinking, "We could just install the packages one at a time." You're right, but there is an easier way.
+
+Instead of installing the packages one by one, use npm install by itself.
+npm will look for a package.json and all its accompanying dependencies.
+
+So, delete node_modules. Now, run node app.js
+
+It no longer works.
+
+But we only deleted the node_modules folder, so let's use npm install to install the dependencies of the package.json file.
+
+npm install
+
+Now, if you ls (or dir), you'll notice that the node_modules folder is back. Run node app.js. It works again!
+
+By the way, let's discuss what the devDepdencies does in package.json. If you are working with a team of developers on a project and you decide that you want to use a testing framework to test your code, you probably don't want to include this in your overall project, as it is specific to you and your team. Add it to the devDepdencies section by typing the following: 
+npm install <the_name_of_the_package> --save-dev
+
+npm install mocha --save-dev
+
+Now, in the package.json file, there is a devDepdencies, with mocha.
+
+Change the value of test to "mocha".
+
+mocha requires a test folder, so create a folder named test.
+
+Cool. Now, let's delete the node_modules folder a second time, then do: npm install
+
+If you inspect the newly created node_modules folder, you'll notice that mocha is part of it. But why? Isn't mocha supposed to be with the developer dependencies? By default, npm believes an environment is a development one, not a production one. To alter this, let's delete the node_modules folder again.
+
+Run the following, after deleting:
+
+NODE_ENV=production npm install
+
+The above code will only install dependencies it needs, not development dependencies. Now, if you inspect your node_modules folder, you should see that mocha is not present. 
+
+
+npm Updating packages
+
+By now, you may have noticed that the modules in the package.json file have special numbers, something like 1.0.1. This is a form of semantic versioning, where each number has a specific meaning. 
+1 = Major
+0 = Minor
+1 = Patch
+
+If you ever see this special character ^, it means that it will install all future releases up to, not including, the major release. 
+
+Ex: 1.1, 1.2, 1.3 but not 2.0
+
+If you see ~, this will do all patch releases up to the minor release.
+
+How can you tell if something is not up to date in npm? npm provides a nice command:
+
+npm outdated
+
+This gives an overview of out-of-date packages.
+
+If you want to update your local project, run the following:
+
+npm update
+
+Note: If you plan to update your packages globally, be cautious. If you do not include the package name (such as http-server), you are telling npm to update all global packages. This could have some negative effects and take some time. Again, just an FYI.
+
+
+npm Uninstall
+
+Now, let's say that we want to uninstall a package. Type the following in the command line:
+
+npm uninstall <name_of_package_you_want_to_uninstall>
+
+If the package you have removed is included in your package.json file, it will be recreated if you run npm install.
+
+To remove it for good, run npm uninstall <name_of_package> --save
+
+The same principle applies to devDepdencies:
+
+npm uninstall <name_of_package> --save-dev
+
 
 npm Questions
 
@@ -115,3 +227,12 @@ A. A module (which is a bundle of software).
 
 Q. Is GitHub a great website to see if an npm module is reliable?
 A. Yes. 1) Contributors, 2) Issues, 3) "Stars", etc.
+
+Q. How would you get help with the package.json file?
+A. From command line, type: npm help json
+
+Q. Which command will check for outdated global packages?
+A. npm outdated -g (remove the -g to check for local)
+
+Q. Which command ignores development dependencies when you use npm install?
+A. NODE_ENV=production npm install
