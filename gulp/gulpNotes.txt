@@ -1,0 +1,85 @@
+Gulp General
+
+Gulp automates tasks: CoffeeScript to Javascript and Sass to CSS, to name a couple.
+
+It is a task runner. But what is a "task runner"? A task runner automates tasks for you.
+
+Tasks are normally described in a single file or multiple files. They can be called by the Gulp engine.
+
+Gulp can do the following:
+
+Concatenate Javascript files
+Minify Javascript files
+Compile Sass into CSS
+Use "watch"
+Scaffold tasks into multiple files
+
+Major Points: 
+
+When creating a gulpfile.js, make certain to place it in the root of your project.
+
+When you type gulp into the terminal, it will run your "default" task. 
+Normally, you specify gulp <your_task_name>, but you don't have to with a "default" task.
+
+
+Gulp Installation
+
+Gulp is a Node technology. To run it, you must have Node(.js) and NPM (Node Package Manager) installed on your machine.
+
+Check for installation, from command line (terminal): 
+npm -v // Shows version
+node -v // Shows version
+Note: If you want to discover the path to the program, type which node (or npm).
+
+With Node and NPM, create a package.json file. Run npm init in the command line. Fill out the information, as needed.
+If you don't want to npm init, type npm install. This will install all the dependencies from the provided package.json file.
+
+Done, let's now save gulp as a development dependency. Run npm install gulp --save-dev
+
+Once you have installed gulp locally, install it globally:
+npm install -g gulp
+Installing gulp globally ensures that it is available system wide.
+
+Check package.json to see the local change.
+
+Now, create a gulpfile.js, adding 'use strict'; at the top.
+This ensures the Node engine runs the file in a "strict" interpretation.
+
+At this point, I will discuss notes in the gulpfile.js, so I'll see you there!
+
+
+Gulp Plugins
+
+One negative about Gulp is that you have to "require" many plugins (modules). The good news--these plugins are reliable because of the great Gulp community.
+
+You should rarely (if ever) have to build a plugin yourself.
+As time goes on, more will come about.
+
+A notable plugin is gulp-concat. (It concatenates (combines) multiple files into one file.) To install gulp-concat, run the following:
+npm install gulp-concat --save-dev
+
+In this repository, you'll notice a basic index.html file.
+It should have three scripts at the bottom, from js/*.js. Let's combine (concatenate) them into one file, named all.js!
+I'll see you in gulpfile.js!
+
+
+Gulp Minification
+
+Minification compresses your files. This can improve the overall experience of your website.
+
+To add this, run the following:
+npm install gulp-uglify --save-dev 
+
+Head to gulpfile.js!
+
+
+Gulp Questions
+
+Q. Which file does Gulp look for to run defined tasks?
+A. gulpfile.js
+
+Q. When you run gulp by itself, Gulp invokes what?
+A. It invokes the "default" task.
+
+Q. Why would you combine all files into a single file?
+A. A browser only has to make a request from one file, speeding up performance.
