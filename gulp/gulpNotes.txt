@@ -73,6 +73,14 @@ npm install gulp-uglify --save-dev
 Head to gulpfile.js!
 
 
+Gulp Source Maps
+
+Let's say that you have successfully compiled and combined all Sass files into one CSS file. Great! But there is a problem to this methodology. If you wanted to track down where something occurs, it might be difficult. Thankfully, there is a solution: source maps.
+Note: source maps can be used with JavaScript, too!
+
+(Example is in gulpfile.js.)
+
+
 Gulp Questions
 
 Q. Which file does Gulp look for to run defined tasks?
