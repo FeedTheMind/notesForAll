@@ -2,7 +2,7 @@
 // Note: Normally, the "required" modules are placed at the top, but for this demonstration, they are not
 
 var gulp = require('gulp'); // require is a Node method
-// Name variable name after module: best practice
+// Name the variable name after the module: best practice
 
 // At this point, we should define a task, using the task method
 
@@ -52,6 +52,7 @@ gulp.task('concatScripts', function () {
 // But there is a problem! The single file has a ton of unnecessary space. Let's fix that!
 //Head back to gulpNotes.txt
 
+
 /////////////////////// Minify
 
 var uglify = require('gulp-uglify');
@@ -65,3 +66,25 @@ gulp.task('minifyScripts', function () {
     .pipe(rename('all.min.js'))
     .pipe(gulp.dest('js'));
 });
+
+// Head back to gulpNotes.txt
+
+
+//////////////////////// Source Maps
+
+// var maps = require('gulp-sourcemaps');
+// var sass = require('gulp-sass');
+
+// Example
+
+/*
+
+gulp.task('compileSass', function () {
+  gulp.src('scss/application.scss')
+    .pipe(maps.init()) // init() goes to sass() method
+    .pipe(sass())
+    .pipe(maps.write('./')) // write() takes one parameter, the current working directory relative to the gulp.dest directory
+    .pipe(gulp.dest('css'));
+});
+
+*/
