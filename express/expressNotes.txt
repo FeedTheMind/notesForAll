@@ -1,0 +1,26 @@
+Express
+
+Express is a web-application framework for Node(.js).
+
+Three tools are needed: 1) text editor, 2) command line (terminal), and 3) browser.
+
+To create an Express application, let's first run npm init.
+
+This initializes (or creates) key configurations for the project in a file, package.json. Note: Press enter throughout the questions.
+
+Now, you should have a package.json file. Type ls to "list" the files. If ls does not work, try dir. But wait, there is something else in your project: node_modules. Why has that folder been created? Well, those are the dependencies that Express needs to run properly. 
+
+But we need to create a .gitignore file and add node_modules; otherwise, git will track the changes of node_modules. In .gitignore, add node_modules.
+
+It's a good habit to place application files in a directory named src (source). It makes it easier for others and yourself to know where to look to understand how the application works. Let's create an app.js file in src.
+
+With that set up, let's create an Express app(lication).
+(Head to src/app.js.)
+
+Express Questions
+
+Q. Is Express a web framework for Node(.js)?
+A. Yes! 
+
+Q. In the command line (terminal), what command should you run to start a node project that will create a package.json file?
+A. npm init.
