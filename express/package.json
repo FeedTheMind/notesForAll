@@ -1,0 +1,13 @@
+{
+  "name": "express_notes",
+  "version": "1.0.0",
+  "description": "Notes and examples, Express",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "King Author",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
