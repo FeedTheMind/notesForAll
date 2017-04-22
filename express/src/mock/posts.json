@@ -1,0 +1,14 @@
+{
+  "Running": {
+    "title": "I like to run!",
+    "description": "This area is about running."
+  },
+  "Crossfit": {
+    "title": "Crossfit is Cool",
+    "description": "This area is about crossfit."
+  },
+  "Swimming": {
+    "title": "Swimming is great for the joints",
+    "description": "This area is about swimming."
+  } 
+}

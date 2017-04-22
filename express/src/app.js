@@ -40,4 +40,22 @@ app.listen(3000, function () {
 
 // Note: If changes aren't present, restart server
 // Ctrl C (twice) will exit the Node environment
+// If you don't like stopping and restarting the server,
+  // install nodemon -- it's a great tool for Node
+    // npm install nodemon -g
 // Example 1 - End
+
+
+// Example 2 - Begin
+
+// Let's add another route.
+// We will be gathering data from the mock folder, specifically posts.json. 
+// Note: mock (folder) signifies that the "mock" information does not come from a database and that it is not created from our application. 
+
+var posts = require('./mock/posts.json');
+
+app.get('/blog', function (req, res) {
+  res.send(posts.Running.title);
+});
+
+// To visit the "blog" route, type localhost:3000/blog
