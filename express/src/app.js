@@ -59,3 +59,8 @@ app.get('/blog', function (req, res) {
 });
 
 // To visit the "blog" route, type localhost:3000/blog
+
+
+// Miscellaneous 
+// node-inspector works with older versions of node
+  // experimental technology = node --inspect path/to/file
