@@ -16,6 +16,7 @@ var app = express();
 
 // Example: node src/app.js
 
+
 app.listen(3000, function () {
   console.log('Frontend server is listening on localhost:3000');
 });
@@ -53,14 +54,58 @@ app.listen(3000, function () {
 // Note: mock (folder) signifies that the "mock" information does not come from a database and that it is not created from our application. 
 
 var posts = require('./mock/posts.json');
+/*
+app.get('/blog/:title?', function (req, res) {
+  var title = req.params.title;
 
-app.get('/blog', function (req, res) {
-  res.send(posts.Running.title);
+  if (title === undefined) {
+    res.status(503);
+    res.send('This page is under construction.');
+  } else {
+    var post = posts[title];
+    res.send();
+  }
 });
+*/
 
 // To visit the "blog" route, type localhost:3000/blog
+// Example 2 - End
 
+// Templates and Template Rendering
+// Templates are a special file with own syntax 
+// Server dynamically "injects" template with data, creating a "view" of HTML
+// Most template languages resemble HTML
+// For this example, Example 3, let's use pug
 
+// Example 3 - Begin
+// src folder now has template folder (directory)
+// template, after defining in app, will look for templates from template folder
+  // template is the name to specify what files go here . . . some developers use views, not template
+
+// In template, there is an index.pug file
+  // To render this, we set the following
+
+app.get('/blog/:title?', function (req, res) {
+  var title = req.params.title;
+
+  if (title === undefined) {
+    res.status(503);
+    res.send('This page is under construction.');
+  } else {
+    var post = posts[title];
+    res.render('post', {post: post});
+  }
+});
+
+app.set('view engine', 'pug');
+app.set('views', __dirname + '/templates');
+
+app.get('/', function (req, res) {
+  // .pug extension isn't required
+  res.render('index');
+});
+
+// Example 3 - End
 // Miscellaneous 
 // node-inspector works with older versions of node
   // experimental technology = node --inspect path/to/file
