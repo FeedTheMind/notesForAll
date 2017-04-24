@@ -92,7 +92,7 @@ app.get('/blog/:title?', function (req, res) {
     res.status(503);
     res.send('This page is under construction.');
   } else {
-    var post = posts[title];
+    var post = posts[title] || {};
     res.render('post', {post: post});
   }
 });
@@ -105,7 +105,18 @@ app.get('/', function (req, res) {
   res.render('index');
 });
 
+// use() defines middleware in Express; it is the logic that tells Express how to handle a request before it arrives at a route
+app.use('/static', express.static(__dirname + '/public'));
+
 // Example 3 - End
+
 // Miscellaneous 
 // node-inspector works with older versions of node
   // experimental technology = node --inspect path/to/file
+
+// It is important to keep your directory organized. Scaffolding helps with this! Giving logical names helps, too.
+
+// A layout template is a great solution to maximize code reuse. 
+  // Other templates (views) will inherit from this template.
+  // If you're wondering what the benefits are, I don't blame you.
+  // The major benefit of a layout template (view) is that you only have to change one file, not one, two, or dozens.
