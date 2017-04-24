@@ -1,0 +1,8 @@
+// layout takes everything in common between files
+// block content = any page extending layout injects html there
+doctype html
+html(lang='en')
+  include partials/_head.pug
+  body
+      include partials/_nav.pug
+      block content 
