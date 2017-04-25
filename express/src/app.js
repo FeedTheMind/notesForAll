@@ -54,6 +54,9 @@ app.listen(3000, function () {
 // Note: mock (folder) signifies that the "mock" information does not come from a database and that it is not created from our application. 
 
 var posts = require('./mock/posts.json');
+var postsLists = Object.keys(posts).map(function (value) {
+  return posts[value];
+});
 /*
 app.get('/blog/:title?', function (req, res) {
   var title = req.params.title;
@@ -90,7 +93,7 @@ app.get('/blog/:title?', function (req, res) {
 
   if (title === undefined) {
     res.status(503);
-    res.send('This page is under construction.');
+    res.render('blog', {posts: postsLists});
   } else {
     var post = posts[title] || {};
     res.render('post', {post: post});
