@@ -1,0 +1,16 @@
+Angular
+
+What is Angular known for? 1) SPAs (single-page applications) and 2) rapid development
+
+Angular is a declarative programming language. In other words,
+you tell the program "what to do," not "how to do it."
+
+Angular is a framework that lives on the "client," not the server. 
+For example, Express (for JavaScript), Django (for Python), and Rails (for Ruby) are for the server, not "client."
+
+Four Angular Concepts
+
+1) Templates (or Views) -- Hold HTML and are what structure the application
+2) Directives -- Extend HTML templates with tags and attributes
+3) Controllers -- Contain logic that tells application how to behave
+4) Scope -- Part of the application that allows data to be manipulated
