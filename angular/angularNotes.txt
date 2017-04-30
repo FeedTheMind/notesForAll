@@ -14,3 +14,13 @@ Four Angular Concepts
 2) Directives -- Extend HTML templates with tags and attributes
 3) Controllers -- Contain logic that tells application how to behave
 4) Scope -- Part of the application that allows data to be manipulated
+
+Controllers contain most of the logic for manipulating the UI (user interface). They determine the state of the application and have the ability to handle data. 
+
+To use a controller, you must inject it into your application. By "inject," this just means "where it is to be used." Use the ng-controller directive, set to name of controller method.
+
+Understanding Scope, Angular
+
+In Angular, scope is one of the more confusing topics. 
+Something important to understand is that all scopes 
+prototypically inherit from the $rootScope. Each Angular application has only one $rootScope, FYI. As an aside, it's best not to use the $rootScope directly in your application, as every function and value created at the root level is available in other scopes. 
